@@ -286,9 +286,6 @@ class RbCube():
     ###########################################################################
     def getFaceColors(self, faceId):
         assert(faceId in RbFace)
+        return [ (c,r,s,self.Dpieces[(c,r,s)].getFaceColor(faceId)) 
+          for (c,r,s) in self.Lcoords]
         
-        # [ for x in RbCol \
-        # for y in RbRow \
-        # for z in RbSlice\
-
-        self.Dpieces[(c,r,s)].getFaceColor(faceId)

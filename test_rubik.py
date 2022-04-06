@@ -11,8 +11,9 @@ print('\n\np3Coords:')
 for c in C.Lp3coords: print(C.Dpieces[c].Lfaces)
 
 
-C.Dpieces[(RbCol(1),RbRow(1),RbSlice(1))]
-C.Dpieces[(RbCol(1),RbRow(1),RbSlice(1))].getFaceColor(RbFace.FaceFront)
+# C.Dpieces[(RbCol(1),RbRow(1),RbSlice(1))]
+# C.Dpieces[(RbCol(1),RbRow(1),RbSlice(1))].getFaceColor(RbFace.FaceFront)
+# C.rotateCubeCol(RbCol(1), RbMove.MoveUp)
 
-
-C.rotateCubeCol(RbCol(1), RbMove.MoveUp)
+print('FaceFront:')
+C.getFaceColors(RbFace.FaceFront)
