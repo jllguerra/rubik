@@ -1,4 +1,4 @@
 import rubikDefs as rbd
 
-print(rbd.moves)
+print(rbd.moves) kk
 
