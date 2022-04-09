@@ -286,6 +286,19 @@ class RbCube():
     ###########################################################################
     def getFaceColors(self, faceId):
         assert(faceId in RbFace)
-        return [ (c,r,s,self.Dpieces[(c,r,s)].getFaceColor(faceId)) 
-          for (c,r,s) in self.Lcoords]
+        #return [ (c,r,s,self.Dpieces[(c,r,s)].getFaceColor(faceId)) 
+        Laux = []
+        for (c,r,s) in self.Lcoords:
+            Lcol = self.Dpieces[(c,r,s)].getFaceColor(faceId)
+            if len(Lcol) > 0:
+                print(f'{(c, r, s, Lcol[0])}')
+                Laux.append((c, r, s, Lcol[0]))
+        Lface = []
+        if len(set([x for (x,_,_,_) in Laux])) == 1:
+            Lface = [(r,s,color) for (_,r,s,color) in Laux]
+        elif len(set([x for (_,x,_,_) in Laux])) == 1:
+            Lface = [(c,s,color) for (c,_,s,color) in Laux]
+        elif len(set([x for (_,_,x,_) in Laux])) == 1:
+            Lface = [(c,r,color) for (c,r,_,color) in Laux]
         
+        return Lface
